@@ -12,22 +12,43 @@ TYPES = ["Fact", "Memory", "Belief", "Opinion", "Observation", "Question", "Jour
 
 
 def is_inventory(question: str) -> bool:
-    text = re.sub(r"\s+", " ", re.sub(r"[?.!,]+$", "", question.lower().replace("\u2019", "'").replace("\u2018", "'")).strip())
-    text = re.sub(r"^(?:(?:please|can you|could you|tell me)\s+)+", "", text)
-    collection = r"(?:(?:my|the|this|our) )?(?:archive|library)"
-    records = r"(?:documents|notes|entries|files|records|topics)"
+    """Recognize whole-archive overview/existence questions before passage search.
+
+    Counts and existence come from the index, not a model's selected passages.
+    Match the entire request so qualifiers such as 'about bicycles' or 'today'
+    keep using retrieval rather than receiving an unrelated global inventory.
+    """
+    if not isinstance(question, str):
+        return False
+    text = re.sub(r"\s+", " ", question.lower().replace("\u2019", "'").replace("\u2018", "'")).strip(" ?.!,")
+    text = re.sub(r",? please$", "", text).rstrip(" ?.!,")
+    # Strip conversational wrappers, including indirect questions from the UI.
+    text = re.sub(r"^(?:(?:please|(?:can|could|would) you|tell me(?: (?:if|whether))?|(?:check|see|confirm)(?: to see)?(?: (?:if|whether))?),? )+", "", text)
+    collection = r"(?:(?:my|the|this|our) )?(?:archive|library|collection)"
+    records = r"(?:documents|notes|entries|files|records|topics|items)"
+    contents = rf"(?:anything|something|stuff|(?:any |some )?(?:saved |archived )?{records}|(?:any |some )?content)"
+    location = rf"(?: (?:in|inside) {collection})?"
+    saved = r"(?:saved|archived|recorded|stored|added|imported|uploaded)"
     patterns = [
         rf"what (?:does|do) {collection} (?:contain|include|hold|have)",
         rf"what {collection} (?:contains|includes|holds|has)",
-        rf"what(?: is|'s) (?:in|inside) {collection}",
+        rf"what(?: is|'s)(?: {saved})? (?:in|inside) {collection}",
         rf"what (?:topics|subjects) (?:are covered by|are in) (?:the )?(?:saved documents|{collection})",
-        rf"what {records} (?:do (?:i|we) have|have (?:i|we) (?:saved|archived|recorded))",
-        r"what have (?:i|we) (?:saved|archived|recorded)(?: so far)?",
+        rf"what {records} (?:do (?:i|we) have|have (?:i|we) {saved}){location}",
+        rf"what do (?:i|we) have(?: {saved})?{location}",
+        rf"what have (?:i|we) {saved}(?: (?:in|into|to) {collection})?(?: so far)?",
         rf"(?:show|give)(?: me)? (?:an? )?(?:overview|summary|inventory|list|contents)(?: of| for)? {collection}",
         rf"(?:list|show)(?: me)?(?: all)? (?:my |the |saved )?{records}(?: in {collection})?",
         rf"(?:summari[sz]e|describe) {collection}",
         rf"how many {records} (?:are (?:there )?in {collection}|do (?:i|we) have|have (?:i|we) (?:saved|archived))",
         rf"{collection} (?:overview|contents|inventory)",
+        # Direct and indirect existence/empty checks share the same real count.
+        rf"(?:do (?:i|we)|(?:i|we)) have {contents}(?: {saved})?{location}(?: yet| so far)?",
+        rf"(?:have (?:i|we)|(?:i|we) have) {saved} {contents}(?: (?:in|into|to) {collection})?(?: yet| so far)?",
+        rf"(?:(?:is|are) there|there (?:is|are)) {contents}(?: {saved})?{location}",
+        rf"(?:does {collection} (?:have|contain|include|hold)|{collection} (?:has|contains|includes|holds)) {contents}",
+        rf"(?:is {collection}|{collection} is) (?:empty|not empty|nonempty)",
+        rf"{contents}(?: {saved})? (?:in|inside) {collection}",
     ]
     return any(re.fullmatch(pattern, text) for pattern in patterns)
 

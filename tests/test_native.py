@@ -106,6 +106,27 @@ class NativeTests(unittest.TestCase):
         self.app.processEvents()
         self.assertTrue(self.window.grab().save(str(directory / (name + ".png"))))
 
+    def test_existence_questions_from_chat_without_an_ai(self):
+        # Exercise typing/submitting through actual widgets, not the overview
+        # shortcut. No model or API is configured in this disposable profile.
+        self.window.show_page(0)
+        self.window.question.setPlainText("Do I have anything in the library?")
+        self.click(self.window.ask_button)
+        self.spin(lambda: len(self.window.snapshot["chat"]["messages"]) == 2)
+        self.idle()
+        self.assertIn("archive is empty", self.window.snapshot["chat"]["messages"][-1]["content"])
+
+        content = "# Physical limitations\n\nA reflection on imagination and memory.\n\n## Metadata\nID: existence-note\n"
+        (self.home / "knowledge" / "external.md").write_text(content, encoding="utf-8")
+        self.window.question.setPlainText("Can you check if I have anything in the collection?")
+        self.click(self.window.ask_button)
+        self.spin(lambda: len(self.window.snapshot["chat"]["messages"]) == 4)
+        self.idle()
+        answer = self.window.snapshot["chat"]["messages"][-1]
+        self.assertIn("contains 1 document", answer["content"])
+        self.assertEqual(answer["sources"][0]["id"], "existence-note")
+        self.assertEqual(self.window.snapshot["model"]["phase"], "stopped")
+
     def test_native_archive_and_api_workflow_without_webengine_or_server(self):
         self.assertNotIn("PySide6.QtWebEngineWidgets", sys.modules)
         self.assertNotIn("fastapi", sys.modules)

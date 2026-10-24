@@ -532,7 +532,9 @@ class LibraryWindow(QMainWindow):
         library = bool(state and state["library"]["phase"] == "ready")
         for widget in (self.save_settings_button, self.reconnect_button, self.fetch_models_button, self.choose_model_button, self.download_button, self.import_files_button, self.import_folder_button, self.refresh_button, self.new_chat_button, self.rename_button):
             widget.setEnabled(bool(state) and not busy)
-        self.ask_button.setEnabled(not busy and ready and library and bool(self.question.toPlainText().strip()))
+        # Inventory questions need only the library. The service owns deciding
+        # whether a question needs a generation model and starting it if so.
+        self.ask_button.setEnabled(not busy and library and bool(self.question.toPlainText().strip()))
         self.prepare_button.setEnabled(not busy and ready and bool(self.source_input.toPlainText().strip()))
         self.save_original_button.setEnabled(not busy and library and bool(self.source_input.toPlainText().strip()))
         self.save_draft_button.setEnabled(not busy and library and bool(self.draft_input.toPlainText().strip()))
