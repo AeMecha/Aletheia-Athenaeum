@@ -6,7 +6,7 @@ Derived from [Aletheia 0.2.0](https://github.com/AeMecha/Aletheia/tree/v0.2.0), 
 
 ## Run
 
-Requires Python 3.12+ and a platform supported by PySide6. From this repository:
+Requires Python 3.12+ and a platform supported by PySide6. Only PySide6 Essentials (including Qt Widgets) is installed; WebEngine and the full add-ons bundle are unnecessary. From this repository:
 
 ```sh
 python -m venv .venv
