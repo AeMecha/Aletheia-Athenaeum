@@ -1,12 +1,10 @@
-Aletheia desktop
-Copyright (c) 2026 AeMecha and Aletheia contributors
+Aletheia Athenaeum
+Copyright (C) 2026 Aletheia contributors
 
-Aletheia is distributed under the GNU Affero General Public License,
-version 3 only (SPDX: AGPL-3.0-only). See LICENSE for the complete text.
+Derived from AeMecha/Aletheia v0.2.0; original Git history is retained.
+Upstream: https://github.com/AeMecha/Aletheia
+Archive protocol and prompts originated in Aletheia's integration in
+SillyTavern (https://github.com/SillyTavern/SillyTavern).
 
-The Librarian protocol and prompts were adapted from the local Aletheia
-integration in SillyTavern. Applicable upstream notices remain in force.
-
-Bundled third-party dependencies and separately obtained model weights have
-their own licenses. See THIRD-PARTY-NOTICES.md and the notices retained with
-those components.
+This independent Python implementation is AGPL-3.0-only; see LICENSE.
+Earlier Electron files remain in Git history for provenance only.
