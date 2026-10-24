@@ -114,9 +114,45 @@ class ProtocolTests(unittest.TestCase):
                 validate_draft(raw, "Original source")
 
     def test_inventory_intent_does_not_swallow_topical_questions(self):
-        self.assertTrue(is_inventory("What does my archive contain?"))
-        self.assertTrue(is_inventory("Show all my documents"))
-        self.assertFalse(is_inventory("What does my archive contain about bicycles?"))
+        broad = (
+            "What does my archive contain?", "Show all my documents",
+            "Do I have anything in the library?",
+            "Can you check if I have anything in the collection?",
+            "Could you please check whether I have any saved documents?",
+            "Please, tell me if there are any notes in my library.",
+            "Can you check to see if the library is empty?",
+            "Is my archive empty?", "Is the collection not empty?",
+            "Does my library contain anything?", "Does this collection have any items?",
+            "Are there any documents in our collection?",
+            "Is there anything saved in my library?", "Anything in the library?",
+            "Have I saved anything yet?", "Have we imported any files into the archive?",
+            "What do I have in my library?", "What notes do we have in the collection?",
+            "What is stored in the archive?", "What have I added to my collection?",
+            "How many items are in the collection?", "What's in my collection?",
+            "  DO   I have anything in the library?!  ",
+            "What\u2019s in my library? ", "Do I have any notes saved, please?",
+        )
+        topical = (
+            "What does my archive contain about bicycles?",
+            "Do I have anything about bicycles?",
+            "Can you check if I have anything in the library about bicycles?",
+            "Do I have any notes on physical limitations?",
+            "Is there anything in the collection about memory?",
+            "Does my library have any documents mentioning imagination?",
+            "Have I saved anything today?", "What have I added to my collection today?",
+            "How many items in the collection mention bicycles?",
+            "Is my library empty of references to magic?",
+            "Do I have any documents titled Library?",
+            "Please check whether the bicycle is in the barn.",
+            "List documents about bicycles", "What does it say about warlocks?",
+            "", None,
+        )
+        for question in broad:
+            with self.subTest(question=question):
+                self.assertTrue(is_inventory(question))
+        for question in topical:
+            with self.subTest(question=question):
+                self.assertFalse(is_inventory(question))
 
     def test_draft_keeps_original_and_rejects_incomplete_metadata(self):
         original = "# Input\n\nUser: this is a legitimate quote.\n\n## Metadata\nID: quoted-id\n"
@@ -199,6 +235,33 @@ class ServiceTests(unittest.IsolatedAsyncioTestCase):
         self.service.theme("dark")
         self.assertEqual(Config(self.home).value["theme"], "dark")
         self.assertEqual(len(self.service.chat["messages"]), 2)
+
+    async def test_existence_questions_use_current_inventory_without_search_or_ai(self):
+        # Neither a lexical no-hit nor a model outage can establish emptiness.
+        async def forbidden_model_start():
+            self.fail("An inventory question must not start a generation model.")
+        def forbidden_search(query):
+            self.fail("An inventory question must not use passage search.")
+        self.service.model.start = forbidden_model_start
+        self.service.archive.search = forbidden_search
+        questions = ("Do I have anything in the library?",
+                     "Can you check if I have anything in the collection?")
+        for question in questions:
+            answer = await self.service.ask(question)
+            self.assertIn("archive is empty", answer["answer"])
+            self.assertEqual(answer["sources"], [])
+            self.assertEqual(answer["search_scope"], "archive_inventory")
+
+        # An externally added file must be discovered before the next answer.
+        content = "# Physical limitations\n\nA reflection on imagination and memory.\n\n## Metadata\nID: existence-note\n"
+        (self.home / "knowledge" / "external.md").write_text(content, encoding="utf-8")
+        for question in questions:
+            answer = await self.service.ask(question)
+            self.assertIn("contains 1 document", answer["answer"])
+            self.assertIn("Physical limitations", answer["answer"])
+            self.assertEqual(answer["sources"][0]["id"], "existence-note")
+            self.assertEqual(answer["search_scope"], "archive_inventory")
+        self.assertEqual(self.service.chat["messages"][-1]["sources"][0]["id"], "existence-note")
 
     async def test_api_formats_aliases_selected_id_and_credentials(self):
         requests = []
