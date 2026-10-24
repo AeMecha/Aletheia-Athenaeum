@@ -1,0 +1,149 @@
+{
+  "model": {
+    "id": "qwen3.8-9b-hermes-fc-tooluse",
+    "filename": "qwen3.8-9b-hermes-fc-tooluse.Q4_K_S.gguf",
+    "size": 5487183744,
+    "sha256": "9c6faac6e793b0a47d78382a8b47d39e43af3f5a146707ec8bd539b74b849d13",
+    "url": "https://huggingface.co/mradermacher/qwen3.8-9b-hermes-fc-tooluse-GGUF/resolve/7db338f4c13ae5440ccc0cde7f047dbe522b0423/qwen3.8-9b-hermes-fc-tooluse.Q4_K_S.gguf"
+  },
+  "runtime": {
+    "version": "b11849",
+    "vulkan": {
+      "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-win-vulkan-x64.zip",
+      "sha256": "1bb3506100dc97239d48f68b26b4896a0389defffcc0780ecf293d422685fea1"
+    },
+    "cpu": {
+      "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-win-cpu-x64.zip",
+      "sha256": "d06c1e2f3b9d80b948fd95b1de1e02221db30f6a9fe147ec16106a73ad101a85"
+    }
+  },
+  "linuxRuntime": {
+    "vulkan": {
+      "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-ubuntu-vulkan-x64.tar.gz",
+      "sha256": "e8c7dae88272ec9cdc53d55d0be42acf5a6a64a371565f564aede7acefa42c04"
+    },
+    "cpu": {
+      "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-ubuntu-x64.tar.gz",
+      "sha256": "6f3c4a06079cdb254b309af7d0e3df9f9d00090c57aa1421382980d9daaec190"
+    }
+  },
+  "embedding": {
+    "id": "Xenova/bge-small-en-v1.5",
+    "dtype": "q8",
+    "pooling": "mean",
+    "dimensions": 384,
+    "revision": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+    "files": [
+      {
+        "filename": "config.json",
+        "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/config.json",
+        "size": 683,
+        "sha256": "fa73f90bf92c8cace1fbcb709626306f2bdbc9ea3e5b5f94b440df9b6aa56350"
+      },
+      {
+        "filename": "tokenizer.json",
+        "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/tokenizer.json",
+        "size": 711396,
+        "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+      },
+      {
+        "filename": "tokenizer_config.json",
+        "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/tokenizer_config.json",
+        "size": 366,
+        "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3"
+      },
+      {
+        "filename": "special_tokens_map.json",
+        "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/special_tokens_map.json",
+        "size": 125,
+        "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+      },
+      {
+        "filename": "README.md",
+        "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/README.md",
+        "size": 3134,
+        "sha256": "ce711ead2cb11725c9c6de69779d918c500ab12c74c5c2437ff0c448ed1566a5"
+      },
+      {
+        "filename": "onnx/model_quantized.onnx",
+        "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/onnx/model_quantized.onnx",
+        "size": 34014426,
+        "sha256": "6c9c6101a956d62dfb5e7190c538226c0c5bb9cb27b651234b6df063ee7dbfe4"
+      }
+    ]
+  },
+  "runtimePlatforms": {
+    "win32-x64": {
+      "cpu": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-win-cpu-x64.zip",
+        "size": 24165481,
+        "sha256": "d06c1e2f3b9d80b948fd95b1de1e02221db30f6a9fe147ec16106a73ad101a85"
+      },
+      "vulkan": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-win-vulkan-x64.zip",
+        "size": 36963643,
+        "sha256": "1bb3506100dc97239d48f68b26b4896a0389defffcc0780ecf293d422685fea1"
+      }
+    },
+    "win32-arm64": {
+      "cpu": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-win-cpu-arm64.zip",
+        "size": 12788892,
+        "sha256": "6e8fa4341121bd9865ee2f654a751a22e61dd726329cdc2067b6655cd9d91e03"
+      },
+      "vulkan": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-win-vulkan-arm64.zip",
+        "size": 25177192,
+        "sha256": "65ab7f61e3bbe5970f2e97204993c08895476a3235678739c531efe882a5d9fc"
+      }
+    },
+    "linux-x64": {
+      "cpu": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-ubuntu-x64.tar.gz",
+        "size": 22428670,
+        "sha256": "6f3c4a06079cdb254b309af7d0e3df9f9d00090c57aa1421382980d9daaec190"
+      },
+      "vulkan": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-ubuntu-vulkan-x64.tar.gz",
+        "size": 35070402,
+        "sha256": "e8c7dae88272ec9cdc53d55d0be42acf5a6a64a371565f564aede7acefa42c04"
+      }
+    },
+    "linux-arm64": {
+      "cpu": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-ubuntu-arm64.tar.gz",
+        "size": 18131184,
+        "sha256": "9f2ddc114b4c20c29843209b5594bf21e796ae15f792a3a253a8942513bdb52e"
+      },
+      "vulkan": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-ubuntu-vulkan-arm64.tar.gz",
+        "size": 28418090,
+        "sha256": "9605496e46c57b0f9ad0291acc2a65365c7d2f2b185b411f3b657dbd58ca9472"
+      }
+    },
+    "darwin-x64": {
+      "cpu": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-macos-x64.tar.gz",
+        "size": 11973607,
+        "sha256": "ec58014c0fdeb1c1a219e2d5f95866e0135e8f9ecfd2872d4262e6f34e443310"
+      },
+      "vulkan": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-macos-x64.tar.gz",
+        "size": 11973607,
+        "sha256": "ec58014c0fdeb1c1a219e2d5f95866e0135e8f9ecfd2872d4262e6f34e443310"
+      }
+    },
+    "darwin-arm64": {
+      "cpu": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-macos-arm64.tar.gz",
+        "size": 16240505,
+        "sha256": "152f718d0775a604cac863f6347b5d731a656ab003e8522e5864f3704d8a9b38"
+      },
+      "vulkan": {
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11849/llama-b11849-bin-macos-arm64.tar.gz",
+        "size": 16240505,
+        "sha256": "152f718d0775a604cac863f6347b5d731a656ab003e8522e5864f3704d8a9b38"
+      }
+    }
+  }
+}
