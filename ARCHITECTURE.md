@@ -24,4 +24,6 @@ Default Qwen is optional. Generic models use schema/JSON/prompt negotiation. pro
 
 ## Verification
 
+The Windows release additionally builds a native one-file PyInstaller executable. It bundles Qt Essentials and the text-only semantic libraries, with no Electron or browser engine. Package data is resolved relative to module paths inside the bundle; user profiles remain outside the temporary extraction directory. The standalone verification command uses real widgets, a disposable profile, synthetic API replies and separately verified BGE weights. Publication waits for both Python and Windows builds, then checks upload sizes and hashes before making the release public. Build scripts and complete license notices accompany the release.
+
 Run python -m unittest discover -s tests -v and python -m build. Tests use disposable profiles and synthetic model responses. Native acceptance tests drive real widgets, signals and the worker offscreen. CI covers Windows, Linux, macOS and Linux ARM64. Local inference and optional semantic dependencies need platform-specific validation.

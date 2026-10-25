@@ -1,5 +1,11 @@
 # Initial Python edition validation
 
+## Standalone Windows 0.1.2
+
+The native Windows x64 executable was built locally with PyInstaller 6.22.3 and passed its frozen-application acceptance check with Python removed from PATH. The actual executable verified Qt startup, empty/populated inventory, Markdown/SQLite operations, stable title edits, saved themes, synthetic API document preparation and cited answers, real BGE ONNX inference, bundled licenses and clean backend/profile shutdown. Release CI repeats the executable build and acceptance on Windows with Python 3.13, and publishes only after both native and Python builds pass.
+
+## Original Python edition
+
 Local checks on Windows x64 with Python 3.14.5:
 
 - 19 archive/protocol/service/native acceptance tests passed using actual Qt Widgets, signals and a QThread worker. Offscreen tests cover save, inventory, title edit, themes, API discovery, preparation, cited answers and clean shutdown.
