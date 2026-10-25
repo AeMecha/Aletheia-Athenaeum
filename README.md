@@ -1,8 +1,10 @@
 # Aletheia Athenaeum
 
+**Origins:** Aletheia Athenaeum is an independently maintained derivative of **[Aletheia](https://github.com/AdeptTel1/Aletheia)** by **[Adeptus Telvannus (AdeptTel1)](https://github.com/AdeptTel1)**. The original Archivist/Librarian prompts and Binder workflow are credited to that project. Its covered material retains the [original custom license](LICENSES/LicenseRef-AdeptTel1-Aletheia.txt); this distribution is **not AGPL-only**. See [ATTRIBUTION.md](ATTRIBUTION.md) for material changes and [LICENSING.md](LICENSING.md) for license scope.
+
 A native **PySide6 / Qt Widgets personal knowledge library**. An athenaeum is a place for reading and learning. The application includes the Librarian, Archivist, document browser and model settings as native widgets. It uses no Electron, WebEngine, browser, FastAPI server, Node.js or other Aletheia installation.
 
-Derived from [Aletheia 0.2.0](https://github.com/AeMecha/Aletheia/tree/v0.2.0), with its Git history and AGPL-3.0-only license retained. The independent browser sibling is Aletheia Agora.
+Ported from [Aletheia Scriptorium’s 0.2.0 implementation](https://github.com/AeMecha/Aletheia-Scriptorium/tree/v0.2.0), retaining its Git history. This implementation lineage does not replace credit to the original AdeptTel1/Aletheia project or its custom license. The independent browser sibling is Aletheia Agora.
 
 ## Run on Windows
 

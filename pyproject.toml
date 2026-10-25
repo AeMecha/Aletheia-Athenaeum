@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=75", "wheel"]
+requires = ["setuptools>=77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,7 +7,8 @@ name = "aletheia-athenaeum"
 version = "0.1.2"
 description = "Aletheia Athenaeum: a native PySide6 personal knowledge library."
 requires-python = ">=3.12"
-license = "AGPL-3.0-only"
+license = "LicenseRef-Aletheia-Distribution"
+license-files = ["LICENSE", "NOTICE", "LICENSING.md", "ATTRIBUTION.md", "LICENSES/*.txt"]
 readme = "README.md"
 dependencies = ["PySide6-Essentials>=6.8,<7", "httpx==0.28.1", "filelock==3.29.4"]
 
@@ -19,10 +20,11 @@ aletheia-athenaeum = "aletheia_athenaeum.__main__:main"
 
 [project.urls]
 Repository = "https://github.com/AeMecha/Aletheia-Athenaeum"
-Upstream = "https://github.com/AeMecha/Aletheia"
+Upstream = "https://github.com/AdeptTel1/Aletheia"
+"Implementation lineage" = "https://github.com/AeMecha/Aletheia-Scriptorium"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [tool.setuptools.package-data]
-aletheia_core = ["data/*.json", "data/prompts/*.md"]
+aletheia_core = ["data/*.json", "data/prompts/*.md", "data/prompts/*.txt"]

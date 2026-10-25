@@ -1,10 +1,18 @@
 Aletheia Athenaeum
-Copyright (C) 2026 Aletheia contributors
+Independent derivative maintained by AeMecha and contributors.
 
-Derived from AeMecha/Aletheia v0.2.0; original Git history is retained.
-Upstream: https://github.com/AeMecha/Aletheia
-Archive protocol and prompts originated in Aletheia's integration in
-SillyTavern (https://github.com/SillyTavern/SillyTavern).
+Original Aletheia project and covered material:
+Copyright © 2026 Adeptus Telvannus. All rights reserved.
+Author: Adeptus Telvannus (GitHub: AdeptTel1)
+Original project: https://github.com/AdeptTel1/Aletheia
+Original release: https://github.com/AdeptTel1/Aletheia/releases/tag/NewRelease
+Original custom license: LICENSES/LicenseRef-AdeptTel1-Aletheia.txt
 
-This independent Python implementation is AGPL-3.0-only; see LICENSE.
-Earlier Electron files remain in Git history for provenance only.
+The Librarian/Archivist prompts and Binder workflow originate in that project.
+Covered original/adapted material retains its author's license; it is not
+represented as AeMecha's original work or as AGPL-licensed upstream material.
+Material changes and the separate fork lineage are documented in ATTRIBUTION.md.
+
+The full AGPL text retained for separately authored application contributions
+is in LICENSES/AGPL-3.0-only.txt. See LICENSING.md for scope; this is not an
+AGPL-only distribution. Other dependency and model notices remain applicable.

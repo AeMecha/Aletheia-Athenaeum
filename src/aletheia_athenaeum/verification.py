@@ -5,6 +5,7 @@ bundled API path without contacting an external provider or opening user data.
 """
 from __future__ import annotations
 import json
+import hashlib
 import math
 import sys
 import tempfile
@@ -111,6 +112,8 @@ def verify(app, report: Path, embeddings: Path | None = None):
                     result["checks"].append("Bundled NumPy, Tokenizers and real BGE ONNX inference")
                 if getattr(sys, "frozen", False):
                     assert (Path(sys._MEIPASS) / "licenses" / "Aletheia" / "LICENSE").is_file()
+                    original_license = Path(sys._MEIPASS) / "licenses" / "Aletheia" / "LICENSES" / "LicenseRef-AdeptTel1-Aletheia.txt"
+                    assert hashlib.sha256(original_license.read_bytes()).hexdigest() == "4499fd097ee95e3b0cfdd5cd852156f2ab57fcb2fb9824453729884d2d4e7416"
                     result["checks"].append("Bundled license notices")
             finally:
                 window.document_dialog.close()

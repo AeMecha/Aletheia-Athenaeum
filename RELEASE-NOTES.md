@@ -18,4 +18,6 @@ aletheia-athenaeum
 
 Adjust the wheel path to its download location. The legacy workaround remains one tested configuration; the standalone Windows binary does not change Linux CPU support or global Python dependency constraints.
 
-Release files: standalone Windows x64 EXE, dependency licenses ZIP, Python wheel, source archive and SHA256SUMS.txt. The source includes build and verification scripts. AGPL-3.0-only; upstream history and attribution retained.
+Release files: standalone Windows x64 EXE, dependency licenses ZIP, Python wheel, source archive and SHA256SUMS.txt. The source includes build and verification scripts. Original Aletheia covered material retains Adeptus Telvannus’s custom license; see LICENSING.md and ATTRIBUTION.md. The full contribution/dependency license texts are retained.
+
+Original project: [Aletheia](https://github.com/AdeptTel1/Aletheia) by [Adeptus Telvannus / AdeptTel1](https://github.com/AdeptTel1). Original custom terms and material changes are documented in LICENSES/, LICENSING.md and ATTRIBUTION.md.
