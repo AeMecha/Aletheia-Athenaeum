@@ -1,0 +1,70 @@
+LICENSE
+
+Copyright © 2026 Adeptus Telvannus. All rights reserved.
+
+I. DEFINITIONS
+"Software" means the source code, documentation, and other materials in this repository that are identified as being covered by this License.
+
+"Individual" means a natural person acting solely on their own behalf and not acting as an employee, contractor, agent, representative, or other member of an organization.
+
+"Organization" means any company, corporation, partnership, nonprofit, government body, educational institution, association, or other legal or collective entity, together with any person acting on behalf of such an entity.
+
+
+II. LICENSE GRANT
+Subject to the terms of this License, the copyright holder grants each Individual a non-exclusive, royalty-free license to:
+
+a) Use the Software for personal, private, educational, research, and other non-commercial purposes;
+b) Copy the Software;
+c) Modify the Software;
+d) Create derivative works based on the Software; and
+e) Share and redistribute the Software, including modified versions, provided that the requirements of Section 3 are followed.
+
+
+III. CONDITIONS OF REDISTRIBUTION
+When you redistribute the Software or a modified version of the Software:
+
+a) You must retain all existing copyright, license, and attribution notices;
+b) You must clearly identify material changes that you have made;
+c) You must not represent the original Software, or the original portions of a modified version, as your own original work; and
+d) You must include a copy of this License or a clear reference to its terms.
+e) You may publish patches, improvements, forks, and modified versions for the benefit of others, provided that those versions remain subject to this License.
+
+
+IV. ORGANIZATIONAL AND COMMERCIAL USE
+No license is granted to any Organization.
+
+In particular, the Software may not be:
+
+a) Used by an Organization, whether internally or externally;
+b) Used by an Individual in the course of employment, contracting, consulting, or other work performed for an Organization;
+c) Incorporated into a product, service, system, or other work operated or distributed by an Organization;
+d) Used to provide services or other commercial benefits to an Organization; or
+e) Sold, licensed, rented, leased, or otherwise commercially exploited.
+
+This restriction applies regardless of whether the Organization receives the Software directly or obtains it through an Individual, fork, modified version, package, or other distribution.
+
+Commercial use, internal business deployment, or embedding this software into any revenue-generating product requires a separate commercial license and payment of applicable fees. Unauthorized commercial use constitutes a material breach of this agreement.
+
+The licensee shall not reverse engineer, decompile, disassemble, analyze, or otherwise use the Software for the purpose of developing a competing product.
+
+The copyright holder reserves the right to audit the licensee's use of the software upon reasonable notice to ensure compliance with these licensing terms.
+
+
+V. NO TRANSFER OF OWNERSHIP
+This License does not transfer ownership of the Software or any intellectual property rights in it.
+
+All rights not expressly granted by this License are reserved by the copyright holder.
+
+VI. CONTRIBUTIONS
+Unless otherwise agreed in writing, contributions submitted to this project remain the property of their respective authors. By submitting a contribution for inclusion in the project, you grant the copyright holder a perpetual, worldwide, non-exclusive, royalty-free license to reproduce, modify, distribute, and otherwise use that contribution as part of the project.
+
+VII. DISCLAIMER OF WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COPYRIGHT HOLDER DISCLAIMS ALL WARRANTIES, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+VIII. LIMITATION OF LIABILITY
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, THE COPYRIGHT HOLDER SHALL NOT BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM OR IN CONNECTION WITH THE SOFTWARE OR ITS USE.
+
+IX. RESERVATION OF RIGHTS
+The copyright holder reserves all rights not expressly granted by this License.
+
+For permission to use the Software outside the scope of this License, contact the copyright holder.

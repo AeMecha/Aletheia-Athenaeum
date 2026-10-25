@@ -1,6 +1,6 @@
 # Third-party components
 
-Aletheia Athenaeum is AGPL-3.0-only; see LICENSE and NOTICE. Distributions must preserve applicable notices and provide corresponding source as required by the AGPL.
+Aletheia Athenaeum includes original/adapted material from [Aletheia](https://github.com/AdeptTel1/Aletheia) by **Adeptus Telvannus (AdeptTel1)**. That covered material retains the [original custom license](LICENSES/LicenseRef-AdeptTel1-Aletheia.txt); it is not relicensed under the AGPL. See LICENSE, LICENSING.md, NOTICE and ATTRIBUTION.md for scope, provenance and material changes. The AGPL text retained for separately authored contributions is in LICENSES/AGPL-3.0-only.txt. Other components retain the following notices.
 
 Python is under the [PSF license](https://docs.python.org/3/license.html). Runtime packages retain their licenses:
 

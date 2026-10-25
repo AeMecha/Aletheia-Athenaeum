@@ -3,3 +3,8 @@ recursive-include src/aletheia_core/data *.json *.md
 recursive-include tests *.py
 include CHANGELOG.md RELEASE-NOTES.md VALIDATION.md
 recursive-include packaging *.py
+
+include ATTRIBUTION.md LICENSING.md UPSTREAM-PROVENANCE.json
+recursive-include LICENSES *.txt
+recursive-include src/aletheia_core/data/prompts *.txt
+recursive-include scripts *.py

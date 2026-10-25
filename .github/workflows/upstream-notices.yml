@@ -1,0 +1,29 @@
+name: Correct upstream attribution on existing releases
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'ATTRIBUTION.md'
+      - 'LICENSING.md'
+      - 'UPSTREAM-PROVENANCE.json'
+      - 'LICENSES/**'
+      - 'scripts/supplement_release_notices.py'
+      - '.github/workflows/upstream-notices.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  notices:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.13'
+      - name: Supplement published releases with exact upstream terms and credit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: python scripts/supplement_release_notices.py

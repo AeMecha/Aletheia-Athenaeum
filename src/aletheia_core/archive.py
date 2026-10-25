@@ -1,3 +1,5 @@
+# Binder workflow provenance: https://github.com/AdeptTel1/Aletheia by Adeptus Telvannus.
+# Covered upstream material retains the custom terms in LICENSES/LicenseRef-AdeptTel1-Aletheia.txt; see ATTRIBUTION.md.
 """Markdown is authoritative; SQLite/FTS and vectors are disposable derived data.
 
 One reentrant lock protects both scans and mutations. New vectors are prepared

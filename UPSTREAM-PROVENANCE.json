@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "upstream_repository": "https://github.com/AdeptTel1/Aletheia",
+  "author": "Adeptus Telvannus",
+  "author_github": "AdeptTel1",
+  "copyright": "Copyright © 2026 Adeptus Telvannus. All rights reserved.",
+  "license": {
+    "path": "LICENSES/LicenseRef-AdeptTel1-Aletheia.txt",
+    "upstream_path": "LICENSE.txt",
+    "commit": "618e5881e802f34fac923d460728c645f27431c0",
+    "sha256": "4499fd097ee95e3b0cfdd5cd852156f2ab57fcb2fb9824453729884d2d4e7416"
+  },
+  "release": {
+    "tag": "NewRelease",
+    "url": "https://github.com/AdeptTel1/Aletheia/releases/tag/NewRelease",
+    "bundles": {
+      "v01.0a_INDEPENDENT.zip": "e4165b20be14894b614b00e78327f199e049c007f2a815b7d7792b8b2cc583ef",
+      "v01.0a_ST_EXTENSION.zip": "5a0d673d7b4d53b4fe6ba3d65fd0f649bb6ea0655a257bd8d2fc87e0356f4e14"
+    }
+  },
+  "original_prompts": {
+    "librarian.md": "dac32b29fc4fc99967031fbdd4e914a9b71d19c5a0b991c38a203300cb25bc72",
+    "archivist.md": "86eeb4c9e87eac5572019b119d1934a5fc264098d6b3ef5442b99ae021ad5083"
+  },
+  "covered_paths": [
+    "src/aletheia_core/data/prompts/librarian.md",
+    "src/aletheia_core/data/prompts/archivist.md",
+    "src/aletheia_core/archive.py"
+  ],
+  "material_changes_document": "ATTRIBUTION.md",
+  "original_prompts_normalized_lf_sha256": {
+    "librarian.md": "dac32b29fc4fc99967031fbdd4e914a9b71d19c5a0b991c38a203300cb25bc72",
+    "archivist.md": "86eeb4c9e87eac5572019b119d1934a5fc264098d6b3ef5442b99ae021ad5083"
+  }
+}

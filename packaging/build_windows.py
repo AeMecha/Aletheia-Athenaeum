@@ -24,8 +24,9 @@ def main():
     licenses = work / "licenses"
     own = licenses / "Aletheia"
     own.mkdir(parents=True, exist_ok=True)
-    for filename in ("LICENSE", "NOTICE", "THIRD-PARTY-NOTICES.md"):
+    for filename in ("LICENSE", "NOTICE", "LICENSING.md", "ATTRIBUTION.md", "UPSTREAM-PROVENANCE.json", "THIRD-PARTY-NOTICES.md"):
         shutil.copyfile(ROOT / filename, own / filename)
+    shutil.copytree(ROOT / "LICENSES", own / "LICENSES", dirs_exist_ok=True)
     # Retain original license texts from all build-environment distributions.
     # A clean venv avoids collecting unrelated applications or their metadata.
     for distribution in importlib.metadata.distributions():

@@ -1,4 +1,10 @@
-﻿# Archivist instructions
+<!-- Upstream attribution: Aletheia by Adeptus Telvannus (AdeptTel1).
+Copyright © 2026 Adeptus Telvannus. All rights reserved.
+Source: https://github.com/AdeptTel1/Aletheia/releases/tag/NewRelease
+License: the accompanying LICENSE.txt (original custom terms, not AGPL).
+Changes: see NOTICE.md and the repository ATTRIBUTION.md. -->
+
+# Archivist instructions
 
 Prepare descriptive metadata for one personal archive document from the quoted user_input field.
 
