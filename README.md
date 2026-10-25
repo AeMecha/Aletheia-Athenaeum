@@ -4,9 +4,17 @@ A native **PySide6 / Qt Widgets personal knowledge library**. An athenaeum is a 
 
 Derived from [Aletheia 0.2.0](https://github.com/AeMecha/Aletheia/tree/v0.2.0), with its Git history and AGPL-3.0-only license retained. The independent browser sibling is Aletheia Agora.
 
-## Run
+## Run on Windows
 
-Download the [0.1.1 wheel and source archive](https://github.com/AeMecha/Aletheia-Athenaeum/releases/tag/v0.1.1), or install from this checkout as follows.
+Download **[Aletheia-Athenaeum-0.1.2-windows-x64.exe](https://github.com/AeMecha/Aletheia-Athenaeum/releases/download/v0.1.2/Aletheia-Athenaeum-0.1.2-windows-x64.exe)** and double-click it. This standalone executable includes Python, PySide6 Qt Widgets and the keyword/semantic-search libraries. No Python installation, virtual environment, Electron or Node.js is required.
+
+The executable is unsigned. Its accompanying licenses ZIP, source archive and SHA-256 checksums are on the [release page](https://github.com/AeMecha/Aletheia-Athenaeum/releases/tag/v0.1.2). Keep license notices with redistributed copies.
+
+Your settings and archive still live in `%APPDATA%/AletheiaAthenaeum`, independently of the executable's location. Existing profiles are reused. Keyword search works immediately; semantic mode downloads verified BGE weights once. Local generation downloads its native engine on first use and needs a selected GGUF or the optional Qwen download. API connections work without a local generation engine.
+
+## Run from Python
+
+Download the [0.1.2 wheel and source archive](https://github.com/AeMecha/Aletheia-Athenaeum/releases/tag/v0.1.2), or install from this checkout as follows.
 
 Requires Python 3.12+ and a platform supported by PySide6. Only PySide6 Essentials (including Qt Widgets) is installed; WebEngine and the full add-ons bundle are unnecessary. From this repository:
 
@@ -20,13 +28,13 @@ aletheia-athenaeum
 
 `python -m aletheia_athenaeum --home /path/to/a/separate/profile` selects another data directory. Use a separate virtual environment for each sibling application.
 
-Keyword search works immediately, offline, without NumPy, ONNX, a tokenizer or model weights. Semantic hybrid search is optional: install `python -m pip install '.[semantic]'`, then choose **Semantic hybrid** in Settings. The pinned BGE search model downloads once and is verified by SHA-256. Switching search modes rebuilds only the derived Python index, preserving original Markdown.
+Keyword search works immediately, offline, without NumPy, ONNX, a tokenizer or model weights. For a Python installation, semantic hybrid search is optional: install `python -m pip install '.[semantic]'`, then choose **Semantic hybrid** in Settings. The Windows executable already includes those libraries. The pinned BGE search model downloads once and is verified by SHA-256. Switching search modes rebuilds only the derived Python index, preserving original Markdown.
 
 Choose a compatible instruction/chat GGUF, download the default Qwen, or configure a Chat Completions API. Local engines download on first use, selected for Windows, Linux or macOS and x64 or ARM64, with pinned official digests. A custom native llama-server executable path is also supported. Engine/library availability, OS versions, CPU/GPU support, memory and the selected model's architecture still determine whether local inference works. API mode needs no local inference engine. This does not claim support for every OS or CPU.
 
 ## Legacy CPU Compatibility (Linux)
 
-Aletheia Athenaeum 0.1.0 was successfully installed and launched with the configuration below. The commands install the current 0.1.1 wheel using the same environment settings.
+Aletheia Athenaeum 0.1.0 was successfully installed and launched with the configuration below. The commands install the current 0.1.2 wheel using the same environment settings.
 
 | Component | Tested configuration |
 | --- | --- |
@@ -95,18 +103,18 @@ QtCore OK
 
 ### 4. Install and launch Athenaeum
 
-Use the wheel at `dist/aletheia_athenaeum-0.1.1-py3-none-any.whl`, relative to the repository root. If it is not already there, download it from the [0.1.1 release](https://github.com/AeMecha/Aletheia-Athenaeum/releases/tag/v0.1.1):
+Use the wheel at `dist/aletheia_athenaeum-0.1.2-py3-none-any.whl`, relative to the repository root. If it is not already there, download it from the [0.1.2 release](https://github.com/AeMecha/Aletheia-Athenaeum/releases/tag/v0.1.2):
 
 ```bash
 mkdir -p dist
-curl -fL --output dist/aletheia_athenaeum-0.1.1-py3-none-any.whl \
-  https://github.com/AeMecha/Aletheia-Athenaeum/releases/download/v0.1.1/aletheia_athenaeum-0.1.1-py3-none-any.whl
+curl -fL --output dist/aletheia_athenaeum-0.1.2-py3-none-any.whl \
+  https://github.com/AeMecha/Aletheia-Athenaeum/releases/download/v0.1.2/aletheia_athenaeum-0.1.2-py3-none-any.whl
 ```
 
 Keep `.venv313` active and install without requesting a dependency upgrade:
 
 ```bash
-python -m pip install ./dist/aletheia_athenaeum-0.1.1-py3-none-any.whl
+python -m pip install ./dist/aletheia_athenaeum-0.1.2-py3-none-any.whl
 python -m pip check
 aletheia-athenaeum
 ```
@@ -163,3 +171,14 @@ python -m build
 ```
 
 The repository includes its own Python archive/model core. No sibling repository or server is required. Native UI tests can use `QT_QPA_PLATFORM=offscreen` and operate on isolated synthetic profiles. See `ARCHITECTURE.md`, `NOTICE` and `THIRD-PARTY-NOTICES.md`.
+
+### Build the Windows executable
+
+Build on Windows x64 in a clean Python environment (release CI uses Python 3.13):
+
+```powershell
+python -m pip install ".[semantic]" PyInstaller==6.22.3
+python packaging/build_windows.py
+```
+
+This creates the executable and a dependency-license ZIP in `dist/`. [PyInstaller](https://pyinstaller.org/en/stable/operating-mode.html) bundles the interpreter and native libraries; model weights and user profiles are excluded. The release workflow runs `packaging/verify_windows.py` against the actual executable with a disposable profile and verified search weights before publishing. Python wheels remain available for other platforms and the legacy Linux installation described above.

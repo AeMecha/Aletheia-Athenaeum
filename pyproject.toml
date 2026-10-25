@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "aletheia-athenaeum"
-version = "0.1.1"
+version = "0.1.2"
 description = "Aletheia Athenaeum: a native PySide6 personal knowledge library."
 requires-python = ">=3.12"
 license = "AGPL-3.0-only"

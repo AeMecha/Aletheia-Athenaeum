@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.2
+
+- Add a standalone Windows x64 executable bundling Python, Qt Essentials and semantic-search libraries; no separate Python installation is required.
+- Retain compatible GGUF/API connections and the optional default Qwen download. Model weights and inference engines remain separately downloaded or selected.
+- Verify the actual executable's native GUI, archive inventory, title edits, saved theme, document preparation, cited answers and real BGE ONNX inference before release.
+- Publish executable and dependency license notices alongside the Python wheel/source, with complete SHA-256 checksums after both native and Python builds pass.
+
 ## 0.1.1
 
 - Route ordinary library existence questions and collection/empty-library phrasing to complete archive counts and saved titles without a generation model.
