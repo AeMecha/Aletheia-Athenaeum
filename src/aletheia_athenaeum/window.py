@@ -84,7 +84,7 @@ class LibraryWindow(QMainWindow):
         side.addWidget(self.theme_button)
         self.side_status = label("Opening your library...", "subtle", True)
         side.addWidget(self.side_status)
-        side.addWidget(label("ATHENAEUM  0.1.0", "eyebrow"))
+        side.addWidget(label("ATHENAEUM  0.1.1", "eyebrow"))
         layout.addWidget(sidebar)
         main = QWidget()
         body = QVBoxLayout(main)
