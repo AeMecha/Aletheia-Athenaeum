@@ -6,6 +6,8 @@ Derived from [Aletheia 0.2.0](https://github.com/AeMecha/Aletheia/tree/v0.2.0), 
 
 ## Run
 
+Download the [0.1.1 wheel and source archive](https://github.com/AeMecha/Aletheia-Athenaeum/releases/tag/v0.1.1), or install from this checkout as follows.
+
 Requires Python 3.12+ and a platform supported by PySide6. Only PySide6 Essentials (including Qt Widgets) is installed; WebEngine and the full add-ons bundle are unnecessary. From this repository:
 
 ```sh
@@ -24,7 +26,7 @@ Choose a compatible instruction/chat GGUF, download the default Qwen, or configu
 
 ## Legacy CPU Compatibility (Linux)
 
-Aletheia Athenaeum 0.1.0 was successfully installed and launched with this configuration:
+Aletheia Athenaeum 0.1.0 was successfully installed and launched with the configuration below. The commands install the current 0.1.1 wheel using the same environment settings.
 
 | Component | Tested configuration |
 | --- | --- |
@@ -93,18 +95,18 @@ QtCore OK
 
 ### 4. Install and launch Athenaeum
 
-Use the wheel at `dist/aletheia_athenaeum-0.1.0-py3-none-any.whl`, relative to the repository root. If it is not already there, download it from the [0.1.0 release](https://github.com/AeMecha/Aletheia-Athenaeum/releases/tag/v0.1.0):
+Use the wheel at `dist/aletheia_athenaeum-0.1.1-py3-none-any.whl`, relative to the repository root. If it is not already there, download it from the [0.1.1 release](https://github.com/AeMecha/Aletheia-Athenaeum/releases/tag/v0.1.1):
 
 ```bash
 mkdir -p dist
-curl -fL --output dist/aletheia_athenaeum-0.1.0-py3-none-any.whl \
-  https://github.com/AeMecha/Aletheia-Athenaeum/releases/download/v0.1.0/aletheia_athenaeum-0.1.0-py3-none-any.whl
+curl -fL --output dist/aletheia_athenaeum-0.1.1-py3-none-any.whl \
+  https://github.com/AeMecha/Aletheia-Athenaeum/releases/download/v0.1.1/aletheia_athenaeum-0.1.1-py3-none-any.whl
 ```
 
 Keep `.venv313` active and install without requesting a dependency upgrade:
 
 ```bash
-python -m pip install ./dist/aletheia_athenaeum-0.1.0-py3-none-any.whl
+python -m pip install ./dist/aletheia_athenaeum-0.1.1-py3-none-any.whl
 python -m pip check
 aletheia-athenaeum
 ```
